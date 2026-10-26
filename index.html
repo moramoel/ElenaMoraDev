@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Elena Mora · Programadora de videojuegos</title>
+<title>Elena Mora · Video Game Programmer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -107,99 +107,99 @@ a.card:hover{transform:translateY(-3px);border-color:var(--blue)}
 <body>
 <div id="home">
 <div class="wrap">
-  <nav aria-label="Principal">
+  <nav aria-label="Main">
     <b>Elena Mora</b>
-    <div><a href="#proyectos">Proyectos</a><a href="#habilidades">Habilidades</a><a href="#camino">Camino</a><a href="#contacto">Contacto</a></div>
+    <div><a href="#proyectos">Projects</a><a href="#habilidades">Skills</a><a href="#camino">Path</a><a href="#contacto">Contact</a></div>
   </nav>
 
   <header class="hero">
     <div>
-      <h1>Programo juegos que se sienten bien al jugarlos.</h1>
-      <p class="lead">Soy Elena, programadora de videojuegos junior. Estudio el HND en Programación de Videojuegos en ESAT, fui lead programmer en dos game jams y el curso pasado terminé cinco proyectos en Unity y Unreal Engine 5 con C# y C++.</p>
+      <h1>I program games that feel good to play.</h1>
+      <p class="lead">I'm Elena, a junior video game programmer. I study the HND in Video Game Programming at ESAT, I was lead programmer in two game jams, and last term I finished five projects in Unity and Unreal Engine 5 with C# and C++.</p>
       <div class="btns">
-        <a class="btn main" href="#proyectos">Ver mis juegos</a>
-        <a class="btn" href="#contacto">Escríbeme</a>
+        <a class="btn main" href="#proyectos">See my games</a>
+        <a class="btn" href="#contacto">Write to me</a>
       </div>
     </div>
     <div class="game">
-      <div class="hud"><span>Monedas: <span id="score">0</span></span><span>Récord: <span id="best">0</span></span></div>
-      <canvas id="cv" width="560" height="340" aria-label="Minijuego: recoge monedas y esquiva los bloques rojos"></canvas>
-      <p class="hint">Mini juego hecho con JavaScript. Mueve el ratón, el dedo o las flechas. Recoge monedas y esquiva lo rojo.</p>
+      <div class="hud"><span>Coins: <span id="score">0</span></span><span>Record: <span id="best">0</span></span></div>
+      <canvas id="cv" width="560" height="340" aria-label="Mini-game: collect coins and avoid the red blocks"></canvas>
+      <p class="hint">Mini game made with JavaScript. Move the mouse, finger, or arrows. Collect coins and avoid red things.</p>
     </div>
   </header>
 </div>
 
 <section id="proyectos">
   <div class="wrap">
-    <h2>Proyectos</h2>
-    <p class="sub">Trabajos del curso pasado. Pulsa una tarjeta para ver el proyecto completo. Filtra por motor o por tipo de proyecto.</p>
+    <h2>Projects</h2>
+    <p class="sub">Work from last term. Click a card to view the full project. Filter by engine or by project type.</p>
     <div class="filters" id="filters">
-      <div class="frow" data-group="motor"><span>Motor</span>
-        <button class="chip" type="button" data-tag="" aria-pressed="true">Todos</button>
+      <div class="frow" data-group="motor"><span>Engine</span>
+        <button class="chip" type="button" data-tag="" aria-pressed="true">All</button>
         <button class="chip" type="button" data-tag="Unity" aria-pressed="false">Unity</button>
         <button class="chip" type="button" data-tag="Unreal Engine 5" aria-pressed="false">Unreal Engine 5</button>
-        <button class="chip" type="button" data-tag="Librería de la escuela" aria-pressed="false">Librería de la escuela</button>
+        <button class="chip" type="button" data-tag="School Library" aria-pressed="false">School Library</button>
       </div>
-      <div class="frow" data-group="lang"><span>Lenguaje</span>
-        <button class="chip" type="button" data-tag="" aria-pressed="true">Todos</button>
+      <div class="frow" data-group="lang"><span>Language</span>
+        <button class="chip" type="button" data-tag="" aria-pressed="true">All</button>
         <button class="chip" type="button" data-tag="C++" aria-pressed="false">C++</button>
         <button class="chip" type="button" data-tag="C#" aria-pressed="false">C#</button>
       </div>
-      <div class="frow" data-group="tema"><span>Tipo</span>
-        <button class="chip" type="button" data-tag="" aria-pressed="true">Todos</button>
-        <button class="chip" type="button" data-tag="Móvil" aria-pressed="false">Móvil</button>
+      <div class="frow" data-group="tema"><span>Type</span>
+        <button class="chip" type="button" data-tag="" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-tag="Mobile" aria-pressed="false">Mobile</button>
         <button class="chip" type="button" data-tag="PC" aria-pressed="false">PC</button>
         <button class="chip" type="button" data-tag="VR" aria-pressed="false">VR</button>
-        <button class="chip" type="button" data-tag="Multijugador" aria-pressed="false">Multijugador</button>
-        <button class="chip" type="button" data-tag="IA" aria-pressed="false">IA</button>
+        <button class="chip" type="button" data-tag="Multiplayer" aria-pressed="false">Multiplayer</button>
+        <button class="chip" type="button" data-tag="AI" aria-pressed="false">AI</button>
         <button class="chip" type="button" data-tag="Procedural" aria-pressed="false">Procedural</button>
-        <button class="chip" type="button" data-tag="Gráficos" aria-pressed="false">Gráficos</button>
+        <button class="chip" type="button" data-tag="Graphics" aria-pressed="false">Graphics</button>
       </div>
     </div>
     <p class="count" id="count" aria-live="polite"></p>
-    <p class="empty" id="empty">Ningún proyecto cumple esos filtros. <button type="button" id="clear">Quitar filtros</button></p>
+    <p class="empty" id="empty">No project matches those filters. <button type="button" id="clear">Clear filters</button></p>
     <div class="projects" id="grid"></div>
-    <h2 style="margin-top:3.5rem;font-size:clamp(1.5rem,3vw,2rem)">Game jams y primeros proyectos</h2>
+    <h2 style="margin-top:3.5rem;font-size:clamp(1.5rem,3vw,2rem)">Game jams and early projects</h2>
     <div class="jams">
-      <div class="jam"><h3>Survive the Candy</h3><p>Contrarreloj 2.5D en Unity. Global Game Jam Valencia de 2026 (48 horas), con un equipo de 4 programadores. Premio al mejor Work in Progress.</p><p class="mine"><b>Mi parte:</b> lead programmer. Investigué si el 2.5D era viable y creé la base del proyecto en Unity con los shaders adecuados. Programé la base de los enemigos para el resto del equipo y la generación del bosque y la instanciación de aldeas, para un mapa distinto cada vez con parámetros comunes. También ayudé a los programadores cuando lo necesitaban.</p><div class="tags"><span>Unity</span><span>C#</span><span>2.5D</span><span>Procedural</span><span>Shaders</span><span>Lead</span><span>Premio Work in Progress</span></div><a href="https://elenam.itch.io/survive-the-candy" target="_blank" rel="noopener">Jugar en itch.io</a></div>
-      <div class="jam"><h3>Quack Adventures</h3><p>Plataformas 2D cooperativo local para PC en Unity. Global Game Jam Valencia de 2025 (48 horas), con 3 programadores.</p><p class="mine"><b>Mi parte:</b> lead programmer y responsable de todo el equipo. Coordiné a los departamentos y a los programadores. Programé el control del jugador que coloca plataformas con el ratón para ayudar al otro jugador.</p><div class="tags"><span>Unity</span><span>C#</span><span>2D</span><span>PC</span><span>Cooperativo local</span><span>Lead</span></div><a href="https://zer0-zzz.itch.io/quack-adventures" target="_blank" rel="noopener">Jugar en itch.io</a></div>
-      <div class="jam"><h3>Primeros proyectos</h3><p>Dos juegos de hace unos años que siguen en mi perfil de itch.io.</p><a href="https://elenam.itch.io" target="_blank" rel="noopener">Ver mi perfil</a></div>
+      <div class="jam"><h3>Survive the Candy</h3><p>2.5D timer game in Unity. Global Game Jam Valencia 2026 (48 hours), with a team of 4 programmers. Award for best Work in Progress.</p><p class="mine"><b>My part:</b> lead programmer. I researched if 2.5D was viable and created the project base in Unity with the right shaders. I programmed the enemy base for the rest of the team and the forest generation and village instantiation, for a different map each time with common parameters. I also helped the other programmers when they needed it.</p><div class="tags"><span>Unity</span><span>C#</span><span>2.5D</span><span>Procedural</span><span>Shaders</span><span>Lead</span><span>Work in Progress Award</span></div><a href="https://elenam.itch.io/survive-the-candy" target="_blank" rel="noopener">Play on itch.io</a></div>
+      <div class="jam"><h3>Quack Adventures</h3><p>Local cooperative 2D platformer for PC in Unity. Global Game Jam Valencia 2025 (48 hours), with 3 programmers.</p><p class="mine"><b>My part:</b> lead programmer and responsible for the whole team. I coordinated departments and programmers. I programmed player control placing platforms with the mouse to help the other player.</p><div class="tags"><span>Unity</span><span>C#</span><span>2D</span><span>PC</span><span>Local Cooperative</span><span>Lead</span></div><a href="https://zer0-zzz.itch.io/quack-adventures" target="_blank" rel="noopener">Play on itch.io</a></div>
+      <div class="jam"><h3>Early projects</h3><p>Two games from a few years ago that are still on my itch.io profile.</p><a href="https://elenam.itch.io" target="_blank" rel="noopener">View my profile</a></div>
     </div>
   </div>
 </section>
 
 <section id="habilidades">
   <div class="wrap">
-    <h2>Habilidades</h2>
-    <p class="sub">Lo que he usado en mis proyectos.</p>
+    <h2>Skills</h2>
+    <p class="sub">What I've used in my projects.</p>
     <div class="skills">
-      <div><h3>Lenguajes</h3><ul><li>C# <em>Unity</em></li><li>C++ <em>Unreal y gráficos</em></li><li>C <em>juegos por consola</em></li><li>Ensamblador ARM64 <em>bajo nivel</em></li><li>Python <em>básico</em></li></ul></div>
-      <div><h3>Motores y herramientas</h3><ul><li>Unity <em>5 proyectos</em></li><li>Unreal Engine 5 <em>1 proyecto</em></li><li>Git y GitHub <em>uso académico y personal</em></li><li>ImGui <em>proyecto gráfico</em></li></ul></div>
-      <div><h3>Programación de juegos</h3><ul><li>IA y disparo de enemigos <em>4 proyectos</em></li><li>Generación procedural <em>3 proyectos</em></li><li>Multijugador en red <em>Unreal</em></li><li>Realidad virtual <em>Unity</em></li><li>Programación gráfica <em>terreno, bosque, agua y skybox</em></li><li>Shaders <em>base 2.5D en Unity</em></li></ul></div>
-    <div><h3>Liderazgo y equipo</h3><ul><li>Lead programmer <em>2 game jams</em></li><li>Coordinación entre departamentos <em>jam 2025</em></li><li>Apoyo a otros programadores <em>2 jams</em></li><li>Viabilidad técnica y base del proyecto <em>jam 2026</em></li></ul></div>
+      <div><h3>Languages</h3><ul><li>C# <em>Unity</em></li><li>C++ <em>Unreal and graphics</em></li><li>C <em>console games</em></li><li>ARM64 Assembly <em>low level</em></li><li>Python <em>basic</em></li></ul></div>
+      <div><h3>Engines and tools</h3><ul><li>Unity <em>5 projects</em></li><li>Unreal Engine 5 <em>1 project</em></li><li>Git and GitHub <em>academic and personal use</em></li><li>ImGui <em>graphics project</em></li></ul></div>
+      <div><h3>Game programming</h3><ul><li>Enemy AI and shooting <em>4 projects</em></li><li>Procedural generation <em>3 projects</em></li><li>Network multiplayer <em>Unreal</em></li><li>Virtual Reality <em>Unity</em></li><li>Graphics programming <em>terrain, forest, water and skybox</em></li><li>Shaders <em>2.5D base in Unity</em></li></ul></div>
+    <div><h3>Leadership and teamwork</h3><ul><li>Lead programmer <em>2 game jams</em></li><li>Coordination between departments <em>2025 jam</em></li><li>Support for other programmers <em>2 jams</em></li><li>Technical viability and project base <em>2026 jam</em></li></ul></div>
     </div>
   </div>
 </section>
 
 <section id="camino">
   <div class="wrap">
-    <h2>Mi camino</h2>
-    <p class="sub">Todavía no he trabajado en un estudio. Esto es lo que he hecho para prepararme.</p>
+    <h2>My path</h2>
+    <p class="sub">I haven't worked at a studio yet. This is what I've done to prepare myself.</p>
     <div class="path">
-      <div><small>Ahora</small><h3>HND en Programación de Videojuegos</h3><p>Estudio en ESAT, donde he hecho los proyectos del curso pasado.</p></div>
-      <div><small>Este año</small><h3>Proyectos nuevos</h3><p>Estoy preparando nuevos juegos que añadiré aquí cuando estén terminados.</p></div>
-      <div><small>Curso pasado</small><h3>Cinco proyectos de la escuela</h3><p>Un multijugador en Unreal, tres juegos en Unity (móvil, PC y realidad virtual) y un trabajo de programación gráfica.</p></div>
-      <div><small>Últimos dos años</small><h3>Dos game jams</h3><p>Fui lead programmer en dos ediciones de la Global Game Jam Valencia (2025 y 2026), de 48 horas cada una. En 2026 ganamos el premio al mejor Work in Progress.</p></div>
+      <div><small>Now</small><h3>HND in Video Game Programming</h3><p>I study at ESAT, where I did the projects from last term.</p></div>
+      <div><small>This year</small><h3>New projects</h3><p>I'm preparing new games I'll add here when they're finished.</p></div>
+      <div><small>Last term</small><h3>Five school projects</h3><p>A multiplayer in Unreal, three Unity games (mobile, PC and VR) and a graphics programming assignment.</p></div>
+      <div><small>Past two years</small><h3>Two game jams</h3><p>I was lead programmer in two editions of the Global Game Jam Valencia (2025 and 2026), 48 hours each. In 2026 we won the award for best Work in Progress.</p></div>
     </div>
   </div>
 </section>
 
 <section id="contacto" class="contact">
   <div class="wrap">
-    <h2>¿Buscas a una programadora junior con ganas?</h2>
-    <p class="sub">Estoy abierto a prácticas, puestos junior y colaboraciones en jams.</p>
+    <h2>Looking for a junior programmer eager to learn?</h2>
+    <p class="sub">I'm open to internships, junior positions, and collaborations in jams.</p>
     <a class="mail" href="mailto:elenamora.dev@gmail.com">elenamora.dev@gmail.com</a>
-    <div class="links"><a href="https://elenam.itch.io" target="_blank" rel="noopener">itch.io</a><a href="#">LinkedIn</a><a href="#">Currículum en PDF</a></div>
+    <div class="links"><a href="https://elenam.itch.io" target="_blank" rel="noopener">itch.io</a><a href="#">LinkedIn</a><a href="#">Resume in PDF</a></div>
   </div>
 </section>
 
@@ -279,9 +279,9 @@ a.card:hover{transform:translateY(-3px);border-color:var(--blue)}
       ctx.fillStyle='rgba(26,16,51,.78)';ctx.fillRect(0,0,W,H);
       ctx.fillStyle='#fff';ctx.textAlign='center';
       ctx.font='800 34px "Bricolage Grotesque",sans-serif';
-      ctx.fillText(state==='over'?'Has perdido: '+score+' monedas':'Pulsa para jugar',W/2,H/2-6);
+      ctx.fillText(state==='over'?'You lost: '+score+' coins':'Click to play',W/2,H/2-6);
       ctx.font='500 17px "DM Sans",sans-serif';
-      ctx.fillText(state==='over'?'Pulsa para intentarlo otra vez':'Toca, haz clic o usa las flechas',W/2,H/2+26);
+      ctx.fillText(state==='over'?'Click to try again':'Touch, click or use arrows',W/2,H/2+26);
     }
   }
   function loop(t){
@@ -298,24 +298,24 @@ a.card:hover{transform:translateY(-3px);border-color:var(--blue)}
 (function(){
 var T=[["#6d4de0", "<circle cx=\"55\" cy=\"55\" r=\"12\" fill=\"#f472b6\"/><circle cx=\"145\" cy=\"55\" r=\"12\" fill=\"#fff\"/><path d=\"M70 55h60\" stroke=\"#fff\" stroke-width=\"3\" stroke-dasharray=\"5 5\"/><rect x=\"90\" y=\"25\" width=\"20\" height=\"20\" fill=\"#ff7a59\"/>"], ["#2a1b52", "<g fill=\"#ff7a59\"><circle cx=\"40\" cy=\"25\" r=\"5\"/><circle cx=\"70\" cy=\"40\" r=\"5\"/><circle cx=\"100\" cy=\"30\" r=\"5\"/><circle cx=\"130\" cy=\"45\" r=\"5\"/><circle cx=\"160\" cy=\"28\" r=\"5\"/></g><polygon points=\"100,90 90,72 110,72\" fill=\"#f472b6\"/>"], ["#f472b6", "<rect x=\"10\" y=\"72\" width=\"180\" height=\"8\" fill=\"#2a1b52\"/><rect x=\"60\" y=\"52\" width=\"18\" height=\"20\" fill=\"#2a1b52\"/><rect x=\"120\" y=\"42\" width=\"18\" height=\"30\" fill=\"#2a1b52\"/><circle cx=\"30\" cy=\"60\" r=\"10\" fill=\"#6d4de0\"/>"], ["#ff7a59", "<rect x=\"45\" y=\"30\" width=\"110\" height=\"40\" rx=\"18\" fill=\"none\" stroke=\"#fff\" stroke-width=\"5\"/><circle cx=\"78\" cy=\"50\" r=\"7\" fill=\"#fff\"/><circle cx=\"122\" cy=\"50\" r=\"7\" fill=\"#fff\"/>"], ["#6d4de0", "<path d=\"M0 80 L30 55 L55 70 L90 30 L120 60 L150 40 L200 75 L200 100 L0 100Z\" fill=\"#f472b6\"/><path d=\"M0 80 L30 55 L55 70 L90 30 L120 60 L150 40 L200 75\" fill=\"none\" stroke=\"#fff\" stroke-width=\"3\"/>"], ["transparent", "<text x=\"100\" y=\"62\" text-anchor=\"middle\" font-size=\"40\" font-family=\"sans-serif\" fill=\"#b8a9de\">+</text>"]];
 var P=[
-{id:"multijugador",t:"Juego multijugador en red",d:"Multijugador en red en Unreal Engine 5, hecho en equipo.",m:"enemigos, objetos sincronizados y niveles.",tags:["Unreal Engine 5","C++","Multijugador","IA"],facts:[["Motor","Unreal Engine 5"],["Lenguaje","C++"],["Equipo","Trabajo en equipo"]],about:"Juego multijugador en red hecho en equipo con Unreal Engine 5 y C++. No programé la capa de red, pero estructuré todo el código de juego en torno a la sincronización entre jugadores.",parts:["Estructura del código de juego pensada desde el principio para la sincronización en red.","Comportamiento de los enemigos: patrullan hasta detectar al jugador, lo persiguen y lo atacan.","Sistema de objetos que el jugador puede coger y soltar, sincronizado entre los jugadores. Era la parte donde más importaba la sincronización.","Diseño de los niveles del juego."],video:""},
-{id:"bullet-hell",t:"Bullet hell para móvil",d:"Bullet hell para móvil en Unity, hecho en pareja.",m:"IA y disparo de los enemigos.",tags:["Unity","C#","Móvil","IA","Proyecto en pareja"],facts:[["Motor","Unity"],["Lenguaje","C#"],["Plataforma","Móvil"],["Equipo","En pareja"]],about:"Juego bullet hell para móvil hecho en Unity con C#, en pareja.",parts:["Inteligencia artificial de los enemigos.","Sistema de disparo de los enemigos."],video:""},
-{id:"infinite-runner",t:"Infinite runner para PC",d:"Infinite runner para PC en Unity, hecho en pareja.",m:"mapa procedural y obstáculos.",tags:["Unity","C#","PC","Procedural","Proyecto en pareja"],facts:[["Motor","Unity"],["Lenguaje","C#"],["Plataforma","PC"],["Equipo","En pareja"]],about:"Corredor infinito para PC hecho en Unity con C#, en pareja, con un mapa que se genera de forma procedural.",parts:["Generación procedural del mapa.","Generación y colocación de los obstáculos."],video:""},
-{id:"vr",t:"Juego de realidad virtual",d:"Juego de realidad virtual en Unity, hecho en pareja.",m:"enemigos y mapas.",tags:["Unity","C#","VR","IA","Proyecto en pareja"],facts:[["Motor","Unity"],["Lenguaje","C#"],["Plataforma","VR"],["Equipo","En pareja"]],about:"Juego de realidad virtual hecho en Unity con C#, en pareja.",parts:["Enemigos del juego.","Diseño y creación de los mapas."],video:""},
-{id:"terreno-procedural",t:"Terreno y bosque procedural",d:"Programación gráfica en grupo, en C++.",m:"terreno, bosque, agua y skybox procedurales.",tags:["C++","Librería de la escuela","Gráficos","Procedural","ImGui","Trabajo en grupo"],facts:[["Lenguaje","C++"],["Librería","Gráfica de la escuela, de estilo OpenGL"],["Herramienta","ImGui"],["Equipo","Trabajo en grupo"]],about:"Proyecto de programación gráfica en grupo, hecho en C++ con la librería gráfica de la escuela, de estilo OpenGL.",parts:["Terreno infinito basado en chunks, generado con ruido Perlin modificado para conseguir el aspecto deseado. La altura máxima se cambia en tiempo real desde un panel de ImGui y el terreno se recalcula al instante.","Bosque generado con ruido que se recalcula junto con el terreno, de modo que los árboles evitan el agua y las zonas nevadas.","Agua como superficie procedural con transparencias, y cáusticas aplicadas solo al terreno que queda bajo el agua para simular el reflejo de la luz.","Skybox con ciclo de día y noche: un shader hace la transición entre imágenes de cielo, con velocidad ajustable desde ImGui.","Nubes y parte de los shaders del proyecto."],video:"https://www.youtube.com/watch?v=S0qxzWMYjOU"},
-{soon:1,t:"Próximamente",d:"Este año añadiré proyectos nuevos. Esta tarjeta se sustituirá por el primero que termine.",m:"por definir.",tags:["En desarrollo"]}
+{id:"multijugador",t:"Network multiplayer game",d:"Online multiplayer game in Unreal Engine 5, done in a team.",m:"enemies, synchronized objects and levels.",tags:["Unreal Engine 5","C++","Multiplayer","AI"],facts:[["Engine","Unreal Engine 5"],["Language","C++"],["Team","Teamwork"]],about:"Online multiplayer game made in a team with Unreal Engine 5 and C++. I didn't program the network layer, but I structured all the game code around synchronization between players.",parts:["Game code structure designed from the start for network synchronization.","Enemy behavior: patrol until they detect the player, then pursue and attack.","System of objects the player can pick up and drop, synchronized between players. This was the part where synchronization mattered most.","Game level design."],video:""},
+{id:"bullet-hell",t:"Bullet hell for mobile",d:"Mobile bullet hell in Unity, done with a partner.",m:"enemy AI and shooting.",tags:["Unity","C#","Mobile","AI","Partner project"],facts:[["Engine","Unity"],["Language","C#"],["Platform","Mobile"],["Team","With a partner"]],about:"Bullet hell game for mobile made in Unity with C#, with a partner.",parts:["Enemy artificial intelligence.","Enemy shooting system."],video:""},
+{id:"infinite-runner",t:"Infinite runner for PC",d:"PC infinite runner in Unity, done with a partner.",m:"procedural map and obstacles.",tags:["Unity","C#","PC","Procedural","Partner project"],facts:[["Engine","Unity"],["Language","C#"],["Platform","PC"],["Team","With a partner"]],about:"Endless runner for PC made in Unity with C#, with a partner, with a procedurally generated map.",parts:["Procedural map generation.","Obstacle generation and placement."],video:""},
+{id:"vr",t:"Virtual reality game",d:"VR game in Unity, done with a partner.",m:"enemies and maps.",tags:["Unity","C#","VR","AI","Partner project"],facts:[["Engine","Unity"],["Language","C#"],["Platform","VR"],["Team","With a partner"]],about:"Virtual reality game made in Unity with C#, with a partner.",parts:["Game enemies.","Map design and creation."],video:""},
+{id:"terreno-procedural",t:"Procedural terrain and forest",d:"Graphics programming in a group, in C++.",m:"procedural terrain, forest, water and skybox.",tags:["C++","School Library","Graphics","Procedural","ImGui","Group work"],facts:[["Language","C++"],["Library","School graphics library, OpenGL-style"],["Tool","ImGui"],["Team","Group work"]],about:"Graphics programming project in a group, done in C++ with the school's graphics library, OpenGL-style.",parts:["Chunk-based infinite terrain, generated with modified Perlin noise to achieve the desired look. Maximum height changes in real time from an ImGui panel and the terrain recalculates instantly.","Forest generated with noise that recalculates along with the terrain, so trees avoid water and snowy areas.","Water as a procedural surface with transparency, and caustics applied only to terrain underwater to simulate light reflection.","Skybox with day-night cycle: a shader transitions between sky images, with adjustable speed from ImGui.","Clouds and part of the project shaders."],video:"https://www.youtube.com/watch?v=S0qxzWMYjOU"},
+{soon:1,t:"Coming Soon",d:"This year I'll add new projects. This card will be replaced by the first one I finish.",m:"to be defined.",tags:["In development"]}
 ];
 var T0=document.title;
-function media(p,i){return p.gif?'<img src="'+p.gif+'" alt="Vista previa de '+p.t+'" loading="lazy">':'<svg viewBox="0 0 200 100" aria-hidden="true">'+T[i][1]+'</svg>'}
+function media(p,i){return p.gif?'<img src="'+p.gif+'" alt="Preview of '+p.t+'" loading="lazy">':'<svg viewBox="0 0 200 100" aria-hidden="true">'+T[i][1]+'</svg>'}
 function tg(p){return p.tags.map(function(x){return "<span>"+x+"</span>"}).join("")}
 document.getElementById("grid").innerHTML=P.map(function(p,i){
-  var inner='<div class="thumb" style="background:'+T[i][0]+'">'+media(p,i)+'</div><div class="body"><h3>'+p.t+'</h3><p>'+p.d+'</p><p class="mine"><b>Mi parte:</b> '+p.m+'</p><div class="tags">'+tg(p)+'</div>'+(p.soon?'':'<span class="more">Ver proyecto →</span>')+'</div>';
+  var inner='<div class="thumb" style="background:'+T[i][0]+'">'+media(p,i)+'</div><div class="body"><h3>'+p.t+'</h3><p>'+p.d+'</p><p class="mine"><b>My part:</b> '+p.m+'</p><div class="tags">'+tg(p)+'</div>'+(p.soon?'':'<span class="more">View project →</span>')+'</div>';
   return p.soon?'<div class="card soon">'+inner+'</div>':'<a class="card" href="#'+p.id+'">'+inner+'</a>';
 }).join("");
 function detail(p,i){
   var f=p.facts.map(function(x){return "<div><small>"+x[0]+"</small>"+x[1]+"</div>"}).join("");
   var l=p.parts.map(function(x){return "<li>"+x+"</li>"}).join("");
-  return '<div class="wrap"><nav aria-label="Principal"><b>Elena Mora</b><div><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto</a></div></nav><a class="back" href="#proyectos">← Volver a proyectos</a><h1 class="dh">'+p.t+'</h1><div class="tags">'+tg(p)+'</div><p class="lead2">'+p.about+'</p><div class="dmedia" style="background:'+T[i][0]+'">'+media(p,i)+'</div><div class="facts">'+f+'</div><h2 class="dh2">Mi parte</h2><ul class="dparts">'+l+'</ul>'+(p.video?'<p><a class="btn main" href="'+p.video+'" target="_blank" rel="noopener">Ver vídeo del proyecto</a></p>':'')+'<a class="back" href="#proyectos">← Volver a proyectos</a></div>';
+  return '<div class="wrap"><nav aria-label="Main"><b>Elena Mora</b><div><a href="#proyectos">Projects</a><a href="#contacto">Contact</a></div></nav><a class="back" href="#proyectos">← Back to projects</a><h1 class="dh">'+p.t+'</h1><div class="tags">'+tg(p)+'</div><p class="lead2">'+p.about+'</p><div class="dmedia" style="background:'+T[i][0]+'">'+media(p,i)+'</div><div class="facts">'+f+'</div><h2 class="dh2">My part</h2><ul class="dparts">'+l+'</ul>'+(p.video?'<p><a class="btn main" href="'+p.video+'" target="_blank" rel="noopener">Watch project video</a></p>':'')+'<a class="back" href="#proyectos">← Back to projects</a></div>';
 }
 var home=document.getElementById("home"),det=document.getElementById("detail");
 function route(){
@@ -343,7 +343,7 @@ addEventListener("hashchange",route);route();
       if(soon&&active)ok=false;
       c.hidden=!ok;if(ok&&!soon)shown++;
     });
-    count.textContent=active?'Mostrando '+shown+' de '+real.length+' proyectos':'';
+    count.textContent=active?'Showing '+shown+' of '+real.length+' projects':'';
     empty.style.display=(active&&!shown)?'block':'none';
     grid.style.display=(active&&!shown)?'none':'';
   }
