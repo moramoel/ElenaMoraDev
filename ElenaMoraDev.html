@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elena Mora · Programadora de videojuegos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#1a1033; --surface:#251749; --ink:#f0eaff; --muted:#b8a9de; --line:#3d2d6b;
+  --blue:#a78bfa; --blue-ink:#1a1033; --sun:#f472b6; --hit:#ff7a59; --field:#2e1d57;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;line-height:1.05;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+nav b{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.15rem}
+nav div{display:flex;gap:1.25rem;font-weight:500;font-size:.97rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1fr;gap:2rem;padding:2rem 0 4rem}
+@media(min-width:60rem){.hero{grid-template-columns:1fr 1.15fr;align-items:center;padding:3rem 0 5rem}}
+.hero h1{font-weight:800;font-size:clamp(2.6rem,7vw,4.6rem)}
+.hero p.lead{font-size:1.2rem;max-width:34rem;color:var(--muted);margin:1.25rem 0 1.75rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.8rem 1.3rem;border-radius:10px;font-weight:700;text-decoration:none;border:2px solid var(--ink)}
+.btn.main{background:var(--blue);color:var(--blue-ink);border-color:var(--blue)}
+.btn:hover{transform:translateY(-2px)}
+.game{background:var(--field);border:2px solid var(--blue);border-radius:14px;padding:.75rem;box-shadow:8px 8px 0 var(--sun)}
+.hud{display:flex;justify-content:space-between;font-weight:700;font-size:.95rem;padding:.1rem .35rem .6rem}
+canvas{display:block;width:100%;height:auto;border-radius:8px;background:var(--surface);touch-action:none;cursor:crosshair}
+.hint{margin:.6rem .35rem 0;font-size:.88rem;color:var(--muted)}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:.6rem}
+.sub{color:var(--muted);max-width:40rem;margin:0 0 2.2rem}
+.projects{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{height:9rem;display:flex;align-items:center;justify-content:center}
+.thumb svg{width:100%;height:100%}
+.card .body{padding:1.25rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:.7rem;flex:1}
+.card h3{font-size:1.45rem}
+.card p{margin:0;color:var(--muted);font-size:.98rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+.tags span{font-size:.82rem;font-weight:500;padding:.2rem .6rem;border-radius:99px;background:var(--field)}
+.card a.link{font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.skills{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
+.skills h3{font-size:1.2rem;margin-bottom:.8rem}
+.skills ul{list-style:none;margin:0;padding:0;display:grid;gap:.45rem}
+.skills li{display:flex;justify-content:space-between;gap:1rem;padding-bottom:.45rem;border-bottom:1px dashed var(--line)}
+.skills li em{font-style:normal;color:var(--muted);font-size:.92rem}
+.path{display:grid;gap:1.4rem;max-width:44rem;border-left:3px solid var(--blue);padding-left:1.4rem}
+.path h3{font-size:1.2rem;margin-bottom:.15rem}
+.path p{margin:0;color:var(--muted)}
+.path small{font-weight:700;color:var(--blue)}
+.contact{text-align:left}
+.contact h2{max-width:34rem}
+.contact .mail{display:inline-block;margin-top:1rem;font:800 clamp(1.4rem,4vw,2.2rem)/1.2 "Bricolage Grotesque",sans-serif;text-underline-offset:6px;text-decoration-thickness:3px;text-decoration-color:var(--sun)}
+.links{display:flex;gap:1.25rem;flex-wrap:wrap;margin-top:1.4rem;font-weight:500}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line)}
+.mine{font-size:.95rem;border-left:3px solid var(--sun);padding-left:.7rem;color:var(--ink)!important}
+.card.soon{background:transparent;border:2px dashed var(--line)}
+.card.soon .thumb{background:var(--field)}
+.jams{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));margin-top:1.25rem}
+.jam{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:1.2rem 1.3rem}
+.jam h3{font-size:1.3rem;margin-bottom:.4rem}
+.jam p{margin:0;color:var(--muted);font-size:.98rem}
+.jam p+p{margin-top:.7rem}
+.jam .tags{margin-top:.9rem}
+.jam a{display:inline-block;margin-top:.8rem;font-weight:700;text-underline-offset:3px}
+.card[hidden]{display:none}
+.filters{display:grid;gap:.8rem;margin:0 0 1.6rem}
+.frow{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.frow>span{font-weight:700;font-size:.95rem;min-width:4.2rem}
+.chip{font:500 .92rem "DM Sans",sans-serif;padding:.35rem .9rem;border-radius:99px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--blue-ink);font-weight:700}
+.count{font-size:.92rem;color:var(--muted);margin:0 0 1rem}
+.empty{display:none;padding:1.5rem;border:2px dashed var(--line);border-radius:14px;color:var(--muted)}
+.empty button{font:inherit;font-weight:700;background:none;border:0;color:var(--blue);text-decoration:underline;cursor:pointer;padding:0}
+a.card{text-decoration:none;color:inherit;transition:transform .15s,border-color .15s}
+a.card:hover{transform:translateY(-3px);border-color:var(--blue)}
+.thumb{overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.more{font-weight:700;color:var(--blue);margin-top:.2rem}
+.back{display:inline-block;margin:1.2rem 0;font-weight:700;color:var(--blue)}
+.dh{font-size:clamp(2rem,6vw,3.4rem);margin-bottom:.9rem}
+.dh2{font-size:1.7rem;margin:2rem 0 1rem}
+.lead2{font-size:1.15rem;color:var(--muted);max-width:44rem;margin:1.1rem 0 0}
+.dmedia{border-radius:14px;overflow:hidden;height:clamp(11rem,38vw,20rem);margin:1.5rem 0;border:1px solid var(--line)}
+.dmedia img,.dmedia svg{width:100%;height:100%;object-fit:cover;display:block}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:1rem;margin:0 0 1rem}
+.facts div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem}
+.facts small{display:block;color:var(--muted);font-size:.82rem}
+.dparts{display:grid;gap:1.1rem;max-width:46rem;padding:0;margin:0 0 1.6rem;list-style:none}
+.dparts li{padding-left:1rem;border-left:3px solid var(--sun)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<div id="home">
+<div class="wrap">
+  <nav aria-label="Principal">
+    <b>Elena Mora</b>
+    <div><a href="#proyectos">Proyectos</a><a href="#habilidades">Habilidades</a><a href="#camino">Camino</a><a href="#contacto">Contacto</a></div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Programo juegos que se sienten bien al jugarlos.</h1>
+      <p class="lead">Soy Elena, programadora de videojuegos junior. Estudio el HND en Programación de Videojuegos en ESAT, fui lead programmer en dos game jams y el curso pasado terminé cinco proyectos en Unity y Unreal Engine 5 con C# y C++.</p>
+      <div class="btns">
+        <a class="btn main" href="#proyectos">Ver mis juegos</a>
+        <a class="btn" href="#contacto">Escríbeme</a>
+      </div>
+    </div>
+    <div class="game">
+      <div class="hud"><span>Monedas: <span id="score">0</span></span><span>Récord: <span id="best">0</span></span></div>
+      <canvas id="cv" width="560" height="340" aria-label="Minijuego: recoge monedas y esquiva los bloques rojos"></canvas>
+      <p class="hint">Mini juego hecho con JavaScript. Mueve el ratón, el dedo o las flechas. Recoge monedas y esquiva lo rojo.</p>
+    </div>
+  </header>
+</div>
+
+<section id="proyectos">
+  <div class="wrap">
+    <h2>Proyectos</h2>
+    <p class="sub">Trabajos del curso pasado. Pulsa una tarjeta para ver el proyecto completo. Filtra por motor o por tipo de proyecto.</p>
+    <div class="filters" id="filters">
+      <div class="frow" data-group="motor"><span>Motor</span>
+        <button class="chip" type="button" data-tag="" aria-pressed="true">Todos</button>
+        <button class="chip" type="button" data-tag="Unity" aria-pressed="false">Unity</button>
+        <button class="chip" type="button" data-tag="Unreal Engine 5" aria-pressed="false">Unreal Engine 5</button>
+        <button class="chip" type="button" data-tag="Librería de la escuela" aria-pressed="false">Librería de la escuela</button>
+      </div>
+      <div class="frow" data-group="lang"><span>Lenguaje</span>
+        <button class="chip" type="button" data-tag="" aria-pressed="true">Todos</button>
+        <button class="chip" type="button" data-tag="C++" aria-pressed="false">C++</button>
+        <button class="chip" type="button" data-tag="C#" aria-pressed="false">C#</button>
+      </div>
+      <div class="frow" data-group="tema"><span>Tipo</span>
+        <button class="chip" type="button" data-tag="" aria-pressed="true">Todos</button>
+        <button class="chip" type="button" data-tag="Móvil" aria-pressed="false">Móvil</button>
+        <button class="chip" type="button" data-tag="PC" aria-pressed="false">PC</button>
+        <button class="chip" type="button" data-tag="VR" aria-pressed="false">VR</button>
+        <button class="chip" type="button" data-tag="Multijugador" aria-pressed="false">Multijugador</button>
+        <button class="chip" type="button" data-tag="IA" aria-pressed="false">IA</button>
+        <button class="chip" type="button" data-tag="Procedural" aria-pressed="false">Procedural</button>
+        <button class="chip" type="button" data-tag="Gráficos" aria-pressed="false">Gráficos</button>
+      </div>
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <p class="empty" id="empty">Ningún proyecto cumple esos filtros. <button type="button" id="clear">Quitar filtros</button></p>
+    <div class="projects" id="grid"></div>
+    <h2 style="margin-top:3.5rem;font-size:clamp(1.5rem,3vw,2rem)">Game jams y primeros proyectos</h2>
+    <div class="jams">
+      <div class="jam"><h3>Survive the Candy</h3><p>Contrarreloj 2.5D en Unity. Global Game Jam Valencia de 2026 (48 horas), con un equipo de 4 programadores. Premio al mejor Work in Progress.</p><p class="mine"><b>Mi parte:</b> lead programmer. Investigué si el 2.5D era viable y creé la base del proyecto en Unity con los shaders adecuados. Programé la base de los enemigos para el resto del equipo y la generación del bosque y la instanciación de aldeas, para un mapa distinto cada vez con parámetros comunes. También ayudé a los programadores cuando lo necesitaban.</p><div class="tags"><span>Unity</span><span>C#</span><span>2.5D</span><span>Procedural</span><span>Shaders</span><span>Lead</span><span>Premio Work in Progress</span></div><a href="https://elenam.itch.io/survive-the-candy" target="_blank" rel="noopener">Jugar en itch.io</a></div>
+      <div class="jam"><h3>Quack Adventures</h3><p>Plataformas 2D cooperativo local para PC en Unity. Global Game Jam Valencia de 2025 (48 horas), con 3 programadores.</p><p class="mine"><b>Mi parte:</b> lead programmer y responsable de todo el equipo. Coordiné a los departamentos y a los programadores. Programé el control del jugador que coloca plataformas con el ratón para ayudar al otro jugador.</p><div class="tags"><span>Unity</span><span>C#</span><span>2D</span><span>PC</span><span>Cooperativo local</span><span>Lead</span></div><a href="https://zer0-zzz.itch.io/quack-adventures" target="_blank" rel="noopener">Jugar en itch.io</a></div>
+      <div class="jam"><h3>Primeros proyectos</h3><p>Dos juegos de hace unos años que siguen en mi perfil de itch.io.</p><a href="https://elenam.itch.io" target="_blank" rel="noopener">Ver mi perfil</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="habilidades">
+  <div class="wrap">
+    <h2>Habilidades</h2>
+    <p class="sub">Lo que he usado en mis proyectos.</p>
+    <div class="skills">
+      <div><h3>Lenguajes</h3><ul><li>C# <em>Unity</em></li><li>C++ <em>Unreal y gráficos</em></li><li>C <em>juegos por consola</em></li><li>Ensamblador ARM64 <em>bajo nivel</em></li><li>Python <em>básico</em></li></ul></div>
+      <div><h3>Motores y herramientas</h3><ul><li>Unity <em>5 proyectos</em></li><li>Unreal Engine 5 <em>1 proyecto</em></li><li>Git y GitHub <em>uso académico y personal</em></li><li>ImGui <em>proyecto gráfico</em></li></ul></div>
+      <div><h3>Programación de juegos</h3><ul><li>IA y disparo de enemigos <em>4 proyectos</em></li><li>Generación procedural <em>3 proyectos</em></li><li>Multijugador en red <em>Unreal</em></li><li>Realidad virtual <em>Unity</em></li><li>Programación gráfica <em>terreno, bosque, agua y skybox</em></li><li>Shaders <em>base 2.5D en Unity</em></li></ul></div>
+    <div><h3>Liderazgo y equipo</h3><ul><li>Lead programmer <em>2 game jams</em></li><li>Coordinación entre departamentos <em>jam 2025</em></li><li>Apoyo a otros programadores <em>2 jams</em></li><li>Viabilidad técnica y base del proyecto <em>jam 2026</em></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="camino">
+  <div class="wrap">
+    <h2>Mi camino</h2>
+    <p class="sub">Todavía no he trabajado en un estudio. Esto es lo que he hecho para prepararme.</p>
+    <div class="path">
+      <div><small>Ahora</small><h3>HND en Programación de Videojuegos</h3><p>Estudio en ESAT, donde he hecho los proyectos del curso pasado.</p></div>
+      <div><small>Este año</small><h3>Proyectos nuevos</h3><p>Estoy preparando nuevos juegos que añadiré aquí cuando estén terminados.</p></div>
+      <div><small>Curso pasado</small><h3>Cinco proyectos de la escuela</h3><p>Un multijugador en Unreal, tres juegos en Unity (móvil, PC y realidad virtual) y un trabajo de programación gráfica.</p></div>
+      <div><small>Últimos dos años</small><h3>Dos game jams</h3><p>Fui lead programmer en dos ediciones de la Global Game Jam Valencia (2025 y 2026), de 48 horas cada una. En 2026 ganamos el premio al mejor Work in Progress.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <h2>¿Buscas a una programadora junior con ganas?</h2>
+    <p class="sub">Estoy abierto a prácticas, puestos junior y colaboraciones en jams.</p>
+    <a class="mail" href="mailto:elenamora.dev@gmail.com">elenamora.dev@gmail.com</a>
+    <div class="links"><a href="https://elenam.itch.io" target="_blank" rel="noopener">itch.io</a><a href="#">LinkedIn</a><a href="#">Currículum en PDF</a></div>
+  </div>
+</section>
+
+</div>
+<div id="detail" hidden></div>
+<footer><div class="wrap">© 2026 Elena Mora.</div></footer>
+
+<script>
+(function(){
+  var cv=document.getElementById('cv'),ctx=cv.getContext('2d'),W=cv.width,H=cv.height;
+  var scoreEl=document.getElementById('score'),bestEl=document.getElementById('best');
+  var best=0,state='ready',score,p,coin,foes,keys={},target=null,last=0;
+  function css(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+  function reset(){
+    p={x:W/2,y:H/2,r:11};score=0;scoreEl.textContent=0;
+    foes=[];for(var i=0;i<3;i++)addFoe();
+    newCoin();target=null;
+  }
+  function addFoe(){
+    var a=Math.random()*6.28,s=70+Math.random()*50,x,y;
+    do{x=Math.random()*W;y=Math.random()*H}while(Math.hypot(x-W/2,y-H/2)<130);
+    foes.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,s:24});
+  }
+  function newCoin(){coin={x:30+Math.random()*(W-60),y:30+Math.random()*(H-60),r:9}}
+  function start(){reset();state='play';last=performance.now();requestAnimationFrame(loop)}
+  function pos(e){
+    var r=cv.getBoundingClientRect(),t=e.touches?e.touches[0]:e;
+    return {x:(t.clientX-r.left)*W/r.width,y:(t.clientY-r.top)*H/r.height};
+  }
+  function down(e){if(state!=='play'){start();}target=pos(e);if(e.cancelable)e.preventDefault()}
+  function move(e){if(state==='play'){target=pos(e)}}
+  cv.addEventListener('mousedown',down);cv.addEventListener('mousemove',move);
+  cv.addEventListener('touchstart',down,{passive:false});cv.addEventListener('touchmove',function(e){move(e);e.preventDefault()},{passive:false});
+  addEventListener('keydown',function(e){
+    var k=e.key.toLowerCase();
+    if(['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d'].indexOf(k)>-1){
+      keys[k]=true;target=null;
+      if(state!=='play'&&cv.getBoundingClientRect().bottom>0&&cv.getBoundingClientRect().top<innerHeight)start();
+      if(k.indexOf('arrow')===0)e.preventDefault();
+    }
+  });
+  addEventListener('keyup',function(e){keys[e.key.toLowerCase()]=false});
+  function update(dt){
+    var sp=210,dx=0,dy=0;
+    if(keys.arrowleft||keys.a)dx-=1;if(keys.arrowright||keys.d)dx+=1;
+    if(keys.arrowup||keys.w)dy-=1;if(keys.arrowdown||keys.s)dy+=1;
+    if(dx||dy){var l=Math.hypot(dx,dy);p.x+=dx/l*sp*dt;p.y+=dy/l*sp*dt}
+    else if(target){
+      var tx=target.x-p.x,ty=target.y-p.y,d=Math.hypot(tx,ty);
+      if(d>2){var m=Math.min(d,sp*1.3*dt);p.x+=tx/d*m;p.y+=ty/d*m}
+    }
+    p.x=Math.max(p.r,Math.min(W-p.r,p.x));p.y=Math.max(p.r,Math.min(H-p.r,p.y));
+    foes.forEach(function(f){
+      f.x+=f.vx*dt;f.y+=f.vy*dt;
+      if(f.x<0||f.x+f.s>W){f.vx*=-1;f.x=Math.max(0,Math.min(W-f.s,f.x))}
+      if(f.y<0||f.y+f.s>H){f.vy*=-1;f.y=Math.max(0,Math.min(H-f.s,f.y))}
+      var cx=Math.max(f.x,Math.min(p.x,f.x+f.s)),cy=Math.max(f.y,Math.min(p.y,f.y+f.s));
+      if(Math.hypot(p.x-cx,p.y-cy)<p.r-1)die();
+    });
+    if(Math.hypot(p.x-coin.x,p.y-coin.y)<p.r+coin.r){
+      score++;scoreEl.textContent=score;newCoin();
+      if(score%3===0&&foes.length<9)addFoe();
+    }
+  }
+  function die(){
+    state='over';if(score>best){best=score;bestEl.textContent=best}
+  }
+  function draw(){
+    ctx.fillStyle=css('--surface');ctx.fillRect(0,0,W,H);
+    ctx.strokeStyle=css('--line');ctx.lineWidth=1;
+    for(var x=0;x<W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke()}
+    for(var y=0;y<H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+    if(coin){ctx.fillStyle=css('--sun');ctx.beginPath();ctx.arc(coin.x,coin.y,coin.r,0,6.28);ctx.fill();ctx.strokeStyle=css('--ink');ctx.lineWidth=2;ctx.stroke()}
+    if(foes)foes.forEach(function(f){ctx.fillStyle=css('--hit');ctx.fillRect(f.x,f.y,f.s,f.s)});
+    if(p){ctx.fillStyle=css('--blue');ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.28);ctx.fill();ctx.strokeStyle=css('--ink');ctx.lineWidth=2;ctx.stroke()}
+    if(state!=='play'){
+      ctx.fillStyle='rgba(26,16,51,.78)';ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='#fff';ctx.textAlign='center';
+      ctx.font='800 34px "Bricolage Grotesque",sans-serif';
+      ctx.fillText(state==='over'?'Has perdido: '+score+' monedas':'Pulsa para jugar',W/2,H/2-6);
+      ctx.font='500 17px "DM Sans",sans-serif';
+      ctx.fillText(state==='over'?'Pulsa para intentarlo otra vez':'Toca, haz clic o usa las flechas',W/2,H/2+26);
+    }
+  }
+  function loop(t){
+    var dt=Math.min(.033,(t-last)/1000);last=t;
+    if(state==='play')update(dt);
+    draw();
+    if(state==='play')requestAnimationFrame(loop);
+  }
+  reset();draw();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){if(state!=='play')draw()});
+})();
+</script>
+<script>
+(function(){
+var T=[["#6d4de0", "<circle cx=\"55\" cy=\"55\" r=\"12\" fill=\"#f472b6\"/><circle cx=\"145\" cy=\"55\" r=\"12\" fill=\"#fff\"/><path d=\"M70 55h60\" stroke=\"#fff\" stroke-width=\"3\" stroke-dasharray=\"5 5\"/><rect x=\"90\" y=\"25\" width=\"20\" height=\"20\" fill=\"#ff7a59\"/>"], ["#2a1b52", "<g fill=\"#ff7a59\"><circle cx=\"40\" cy=\"25\" r=\"5\"/><circle cx=\"70\" cy=\"40\" r=\"5\"/><circle cx=\"100\" cy=\"30\" r=\"5\"/><circle cx=\"130\" cy=\"45\" r=\"5\"/><circle cx=\"160\" cy=\"28\" r=\"5\"/></g><polygon points=\"100,90 90,72 110,72\" fill=\"#f472b6\"/>"], ["#f472b6", "<rect x=\"10\" y=\"72\" width=\"180\" height=\"8\" fill=\"#2a1b52\"/><rect x=\"60\" y=\"52\" width=\"18\" height=\"20\" fill=\"#2a1b52\"/><rect x=\"120\" y=\"42\" width=\"18\" height=\"30\" fill=\"#2a1b52\"/><circle cx=\"30\" cy=\"60\" r=\"10\" fill=\"#6d4de0\"/>"], ["#ff7a59", "<rect x=\"45\" y=\"30\" width=\"110\" height=\"40\" rx=\"18\" fill=\"none\" stroke=\"#fff\" stroke-width=\"5\"/><circle cx=\"78\" cy=\"50\" r=\"7\" fill=\"#fff\"/><circle cx=\"122\" cy=\"50\" r=\"7\" fill=\"#fff\"/>"], ["#6d4de0", "<path d=\"M0 80 L30 55 L55 70 L90 30 L120 60 L150 40 L200 75 L200 100 L0 100Z\" fill=\"#f472b6\"/><path d=\"M0 80 L30 55 L55 70 L90 30 L120 60 L150 40 L200 75\" fill=\"none\" stroke=\"#fff\" stroke-width=\"3\"/>"], ["transparent", "<text x=\"100\" y=\"62\" text-anchor=\"middle\" font-size=\"40\" font-family=\"sans-serif\" fill=\"#b8a9de\">+</text>"]];
+var P=[
+{id:"multijugador",t:"Juego multijugador en red",d:"Multijugador en red en Unreal Engine 5, hecho en equipo.",m:"enemigos, objetos sincronizados y niveles.",tags:["Unreal Engine 5","C++","Multijugador","IA"],facts:[["Motor","Unreal Engine 5"],["Lenguaje","C++"],["Equipo","Trabajo en equipo"]],about:"Juego multijugador en red hecho en equipo con Unreal Engine 5 y C++. No programé la capa de red, pero estructuré todo el código de juego en torno a la sincronización entre jugadores.",parts:["Estructura del código de juego pensada desde el principio para la sincronización en red.","Comportamiento de los enemigos: patrullan hasta detectar al jugador, lo persiguen y lo atacan.","Sistema de objetos que el jugador puede coger y soltar, sincronizado entre los jugadores. Era la parte donde más importaba la sincronización.","Diseño de los niveles del juego."],video:""},
+{id:"bullet-hell",t:"Bullet hell para móvil",d:"Bullet hell para móvil en Unity, hecho en pareja.",m:"IA y disparo de los enemigos.",tags:["Unity","C#","Móvil","IA","Proyecto en pareja"],facts:[["Motor","Unity"],["Lenguaje","C#"],["Plataforma","Móvil"],["Equipo","En pareja"]],about:"Juego bullet hell para móvil hecho en Unity con C#, en pareja.",parts:["Inteligencia artificial de los enemigos.","Sistema de disparo de los enemigos."],video:""},
+{id:"infinite-runner",t:"Infinite runner para PC",d:"Infinite runner para PC en Unity, hecho en pareja.",m:"mapa procedural y obstáculos.",tags:["Unity","C#","PC","Procedural","Proyecto en pareja"],facts:[["Motor","Unity"],["Lenguaje","C#"],["Plataforma","PC"],["Equipo","En pareja"]],about:"Corredor infinito para PC hecho en Unity con C#, en pareja, con un mapa que se genera de forma procedural.",parts:["Generación procedural del mapa.","Generación y colocación de los obstáculos."],video:""},
+{id:"vr",t:"Juego de realidad virtual",d:"Juego de realidad virtual en Unity, hecho en pareja.",m:"enemigos y mapas.",tags:["Unity","C#","VR","IA","Proyecto en pareja"],facts:[["Motor","Unity"],["Lenguaje","C#"],["Plataforma","VR"],["Equipo","En pareja"]],about:"Juego de realidad virtual hecho en Unity con C#, en pareja.",parts:["Enemigos del juego.","Diseño y creación de los mapas."],video:""},
+{id:"terreno-procedural",t:"Terreno y bosque procedural",d:"Programación gráfica en grupo, en C++.",m:"terreno, bosque, agua y skybox procedurales.",tags:["C++","Librería de la escuela","Gráficos","Procedural","ImGui","Trabajo en grupo"],facts:[["Lenguaje","C++"],["Librería","Gráfica de la escuela, de estilo OpenGL"],["Herramienta","ImGui"],["Equipo","Trabajo en grupo"]],about:"Proyecto de programación gráfica en grupo, hecho en C++ con la librería gráfica de la escuela, de estilo OpenGL.",parts:["Terreno infinito basado en chunks, generado con ruido Perlin modificado para conseguir el aspecto deseado. La altura máxima se cambia en tiempo real desde un panel de ImGui y el terreno se recalcula al instante.","Bosque generado con ruido que se recalcula junto con el terreno, de modo que los árboles evitan el agua y las zonas nevadas.","Agua como superficie procedural con transparencias, y cáusticas aplicadas solo al terreno que queda bajo el agua para simular el reflejo de la luz.","Skybox con ciclo de día y noche: un shader hace la transición entre imágenes de cielo, con velocidad ajustable desde ImGui.","Nubes y parte de los shaders del proyecto."],video:"https://www.youtube.com/watch?v=S0qxzWMYjOU"},
+{soon:1,t:"Próximamente",d:"Este año añadiré proyectos nuevos. Esta tarjeta se sustituirá por el primero que termine.",m:"por definir.",tags:["En desarrollo"]}
+];
+var T0=document.title;
+function media(p,i){return p.gif?'<img src="'+p.gif+'" alt="Vista previa de '+p.t+'" loading="lazy">':'<svg viewBox="0 0 200 100" aria-hidden="true">'+T[i][1]+'</svg>'}
+function tg(p){return p.tags.map(function(x){return "<span>"+x+"</span>"}).join("")}
+document.getElementById("grid").innerHTML=P.map(function(p,i){
+  var inner='<div class="thumb" style="background:'+T[i][0]+'">'+media(p,i)+'</div><div class="body"><h3>'+p.t+'</h3><p>'+p.d+'</p><p class="mine"><b>Mi parte:</b> '+p.m+'</p><div class="tags">'+tg(p)+'</div>'+(p.soon?'':'<span class="more">Ver proyecto →</span>')+'</div>';
+  return p.soon?'<div class="card soon">'+inner+'</div>':'<a class="card" href="#'+p.id+'">'+inner+'</a>';
+}).join("");
+function detail(p,i){
+  var f=p.facts.map(function(x){return "<div><small>"+x[0]+"</small>"+x[1]+"</div>"}).join("");
+  var l=p.parts.map(function(x){return "<li>"+x+"</li>"}).join("");
+  return '<div class="wrap"><nav aria-label="Principal"><b>Elena Mora</b><div><a href="#proyectos">Proyectos</a><a href="#contacto">Contacto</a></div></nav><a class="back" href="#proyectos">← Volver a proyectos</a><h1 class="dh">'+p.t+'</h1><div class="tags">'+tg(p)+'</div><p class="lead2">'+p.about+'</p><div class="dmedia" style="background:'+T[i][0]+'">'+media(p,i)+'</div><div class="facts">'+f+'</div><h2 class="dh2">Mi parte</h2><ul class="dparts">'+l+'</ul>'+(p.video?'<p><a class="btn main" href="'+p.video+'" target="_blank" rel="noopener">Ver vídeo del proyecto</a></p>':'')+'<a class="back" href="#proyectos">← Volver a proyectos</a></div>';
+}
+var home=document.getElementById("home"),det=document.getElementById("detail");
+function route(){
+  var id=decodeURIComponent(location.hash.slice(1)),i=-1;
+  P.forEach(function(p,k){if(p.id===id)i=k});
+  if(i>-1){home.hidden=true;det.hidden=false;det.innerHTML=detail(P[i],i);document.title=P[i].t+" · Elena Mora";window.scrollTo(0,0);}
+  else{det.hidden=true;home.hidden=false;document.title=T0;var el=id&&document.getElementById(id);if(el)el.scrollIntoView();}
+}
+addEventListener("hashchange",route);route();
+})();
+</script>
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.projects .card'));
+  var rows=[].slice.call(document.querySelectorAll('#filters .frow'));
+  var count=document.getElementById('count'),empty=document.getElementById('empty'),grid=document.querySelector('.projects');
+  var sel={motor:'',tema:'',lang:''};
+  function tagsOf(c){return [].map.call(c.querySelectorAll('.tags span'),function(s){return s.textContent.trim()})}
+  var real=cards.filter(function(c){return !c.classList.contains('soon')});
+  function apply(){
+    var shown=0,active=sel.motor||sel.tema||sel.lang;
+    cards.forEach(function(c){
+      var t=tagsOf(c),soon=c.classList.contains('soon');
+      var ok=(!sel.motor||t.indexOf(sel.motor)>-1)&&(!sel.tema||t.indexOf(sel.tema)>-1)&&(!sel.lang||t.indexOf(sel.lang)>-1);
+      if(soon&&active)ok=false;
+      c.hidden=!ok;if(ok&&!soon)shown++;
+    });
+    count.textContent=active?'Mostrando '+shown+' de '+real.length+' proyectos':'';
+    empty.style.display=(active&&!shown)?'block':'none';
+    grid.style.display=(active&&!shown)?'none':'';
+  }
+  rows.forEach(function(r){
+    r.addEventListener('click',function(e){
+      var b=e.target.closest('.chip');if(!b)return;
+      sel[r.dataset.group]=b.dataset.tag;
+      [].forEach.call(r.querySelectorAll('.chip'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      apply();
+    });
+  });
+  document.getElementById('clear').addEventListener('click',function(){
+    sel={motor:'',tema:'',lang:''};
+    rows.forEach(function(r){[].forEach.call(r.querySelectorAll('.chip'),function(x,i){x.setAttribute('aria-pressed',i===0?'true':'false')})});
+    apply();
+  });
+  apply();
+})();
+</script>
+</body>
+</html>
