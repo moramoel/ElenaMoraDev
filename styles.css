@@ -1,8 +1,8 @@
 /* ============ PALETA MODO OSCURO (por defecto) ============ */
 :root[data-theme="dark"]{
-  --bg:#37306B;
-  --surface:#4a427a;
-  --surface-2:#5d5394;
+  --bg:#5b306b;
+  --surface:rgb(128, 101, 138);
+  --surface-2:rgb(66, 22, 85);
   --ink:#f8f6ff;
   --muted:#c8bce0;
   --line:#66347F;
@@ -15,14 +15,14 @@
 /* ============ PALETA MODO CLARO ============ */
 :root[data-theme="light"]{
   --bg:#FFE1E0;
-  --surface:#F49BAB;
+  --surface:#c39bc5;
   --surface-2:#E8C4C9;
   --ink:#37306B;
-  --muted:#66347F;
+  --muted:#592c70;
   --line:#9B7EBD;
-  --primary:#7F55B1;
+  --primary:#a760d3;
   --primary-soft:#9B7EBD;
-  --coral:#F49BAB;
+  --coral:#ba429c;
   --pink:#9E4784;
 }
 
@@ -72,7 +72,7 @@ a:hover,a:focus{color:var(--coral);text-decoration:none}
 
 /* ============ NAVBAR ============ */
 .navbar-default{
-  background:rgba(55,48,107,.93);
+  background:rgba(60, 15, 69, 0.93);
   -webkit-backdrop-filter:saturate(180%) blur(10px);
   backdrop-filter:saturate(180%) blur(10px);
   border:0;
@@ -85,7 +85,7 @@ a:hover,a:focus{color:var(--coral);text-decoration:none}
   transition:box-shadow .3s ease, background .3s ease;
 }
 [data-theme="light"] .navbar-default{
-  background:rgba(244,155,171,.93);
+  background:rgba(151, 76, 213, 0.93);
 }
 .navbar.scrolled{box-shadow:0 6px 30px rgba(0,0,0,.35)}
 .navbar-default .navbar-brand{
@@ -224,7 +224,7 @@ a.project-card:focus .thumbnail{
 a.project-card:hover .band{filter:brightness(1.12)}
 
 /* Band-specific gradients - modo oscuro por defecto */
-.band-multijugador{background:linear-gradient(135deg,#2a1b52,#9E4784);}
+.band-multijugador{background:linear-gradient(135deg,#450454,#9E4784);}
 .band-bullethell{background:linear-gradient(135deg,#9E4784,#d27685);}
 .band-runner{background:linear-gradient(135deg,#F49BAB,#D27685);}
 .band-vr{background:linear-gradient(135deg,#D27685,#F49BAB);}
@@ -288,7 +288,11 @@ a.project-card:hover .view-link{color:var(--coral)}
   box-shadow:0 14px 40px rgba(127,85,177,.20);
 }
 .panel-default>.panel-heading{
-  background:linear-gradient(135deg,var(--primary) 0%,#c77db8 100%)!important;
+  background:linear-gradient(135deg,var(--primary) 0%,#8242a2 100%)!important;
+  color:#fff!important;border:0;border-radius:0;padding:24px 20px;
+}
+[data-theme="light"] .panel-default>.panel-heading{
+  background:linear-gradient(135deg,var(--primary) 0%,#cfabe1 100%)!important;
   color:#fff!important;border:0;border-radius:0;padding:24px 20px;
 }
 .panel-default>.panel-body{
@@ -405,8 +409,8 @@ footer p{color:var(--muted);margin:0}
 /* ============ THEME TOGGLE BUTTON ============ */
 .theme-toggle{
   position:fixed;
-  top:20px;
-  right:20px;
+  bottom:20px;
+  left:20px;
   z-index:1000;
   width:52px;
   height:52px;
@@ -449,6 +453,60 @@ footer p{color:var(--muted);margin:0}
 }
 [data-theme="dark"]{
   --glow-opacity: 1;
+}
+
+/* Scroll to top button - hidden initially */
+.scroll-top{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  z-index:999;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:var(--coral);
+  border:2px solid var(--line);
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  opacity:0;
+  visibility:hidden;
+  transition:all .3s ease;
+  box-shadow:0 4px 16px rgba(0,0,0,.3);
+}
+[data-theme="light"] .scroll-top{
+  box-shadow:0 4px 16px rgba(0,0,0,.15);
+}
+.scroll-top.visible{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.scroll-top:hover{
+  transform:translateY(-3px);
+  box-shadow:0 6px 22px rgba(210,118,133,.5);
+}
+[data-theme="light"] .scroll-top:hover{
+  box-shadow:0 6px 22px rgba(244,155,171,.45);
+}
+.scroll-top:focus{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(158,71,132,.4), 0 4px 16px rgba(0,0,0,.3);
+}
+[data-theme="light"] .scroll-top:focus{
+  box-shadow:0 0 0 3px rgba(127,85,177,.35), 0 4px 16px rgba(0,0,0,.15);
+}
+/* Scroll-to-top icon must be white */
+.scroll-top .glyphicon,
+.scroll-top .glyphicon-chevron-up{
+  color:#fad3f6 !important;
+}
+[data-theme="light"] .scroll-top .glyphicon,
+[data-theme="light"] .scroll-top .glyphicon-chevron-up{
+  color:#fad3f6 !important; /* Dark color for light mode contrast */
 }
 
 /* ============ VIEW SWITCHING ============ */
@@ -500,4 +558,20 @@ footer p{color:var(--muted);margin:0}
   html{scroll-behavior:auto}
   .slideanim{visibility:visible}
   *{animation:none!important;transition:none!important}
+}
+/* Center contact section (for when form is removed) */
+#contact p.text-center + p,
+#contact .col-sm-5,
+#contact .col-sm-7{
+  text-align:center;
+}
+#contact .row{
+  justify-content:center;
+}
+#contact .link-chips-wrapper{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:6px;
+  margin:12px 0;
 }
