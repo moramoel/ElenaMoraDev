@@ -304,16 +304,32 @@
   window.addEventListener("hashchange", route);
   window.addEventListener("scroll", revealOnScroll);
 
-  // Navbar shadow on scroll
-  window.addEventListener("scroll", function () {
-    var nav = document.querySelector(".navbar");
-    if (!nav) return;
+  // Navbar shadow on scroll AND show/hide scroll-to-top button
+window.addEventListener("scroll", function () {
+  var nav = document.querySelector(".navbar");
+  var scrollTopBtn = document.getElementById("scrollTopBtn");
+  
+  if (nav) {
     if ((window.pageYOffset || document.documentElement.scrollTop) > 50) {
       nav.classList.add("scrolled");
     } else {
       nav.classList.remove("scrolled");
     }
-  });
+  }
+  
+  if (scrollTopBtn) {
+    if ((window.pageYOffset || document.documentElement.scrollTop) > 300) {
+      scrollTopBtn.classList.add("visible");
+    } else {
+      scrollTopBtn.classList.remove("visible");
+    }
+  }
+});
+
+// Click to scroll to top
+document.getElementById("scrollTopBtn")?.addEventListener("click", function(){
+  window.scrollTo({top: 0, behavior: "smooth"});
+});
 
   // Close the collapsed mobile menu after tapping a link
   document.addEventListener("click", function(e){
