@@ -564,8 +564,11 @@ footer p{color:var(--muted);margin:0}
 #contact .col-sm-7{
   text-align:center;
 }
-#contact .row{
-  justify-content:center;
+#contact .col-sm-5{
+  float:none;
+  width:auto;
+  max-width:560px;
+  margin:0 auto;
 }
 #contact .link-chips-wrapper{
   display:flex;
