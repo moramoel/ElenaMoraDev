@@ -223,6 +223,11 @@ a.project-card:focus .thumbnail{
 }
 a.project-card:hover .band{filter:brightness(1.12)}
 
+.band{position:relative;overflow:hidden}
+.band video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}
+.detail-clip{margin:26px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 10px 34px rgba(109,74,255,.25)}
+.detail-clip video{display:block;width:100%;height:auto}
+
 /* Band-specific gradients - modo oscuro por defecto */
 .band-multijugador{background:linear-gradient(135deg,#450454,#9E4784);}
 .band-bullethell{background:linear-gradient(135deg,#9E4784,#d27685);}
@@ -389,6 +394,8 @@ a.project-card:hover .view-link{color:var(--coral)}
 }
 .detail-parts{text-align:left;padding-left:22px;color:var(--muted)}
 .detail-parts li{margin-bottom:10px}
+
+.detail-story{color:var(--muted);line-height:1.8;margin:0 0 18px}
 
 /* ============ FOOTER ============ */
 footer.container-fluid{
