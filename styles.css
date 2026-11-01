@@ -283,14 +283,6 @@ a.project-card:hover .view-link{color:var(--coral)}
   border:1px solid var(--line);
   border-radius:14px!important;
   overflow:hidden;
-  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
-}
-.panel-default:hover{
-  transform:translateY(-4px);border-color:var(--primary-soft);
-  box-shadow:0 14px 40px rgba(158,71,132,.22);
-}
-[data-theme="light"] .panel-default:hover{
-  box-shadow:0 14px 40px rgba(127,85,177,.20);
 }
 .panel-default>.panel-heading{
   background:linear-gradient(135deg,var(--primary) 0%,#8242a2 100%)!important;
